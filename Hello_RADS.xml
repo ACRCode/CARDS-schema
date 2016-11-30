@@ -17,7 +17,7 @@
             <Diagrams>  
                 <Diagram DisplaySequence="1" KeyDiagram="true">
                 	<imageElements>https://nrdr.acr.org/lirads/ </imageElements>
-                    <Label>ACR LI-RADS</Label>  <!-- Perhaps we shouldn't reference "LI-RADS"? -->
+                    <Label>ACR LI-RADS</Label>  
                 </Diagram>
             </Diagrams>
             <Contact>
@@ -50,7 +50,7 @@
                 <ContextPhrase></ContextPhrase>
             </ContextPhrases>
             <KeyWords>
-                <KeyWord>LIRADS Liver lesion</KeyWord>  <!-- Perhaps we shouldn't reference "LI-RADS"? -->
+                <KeyWord>LIRADS Liver lesion</KeyWord>  
             </KeyWords>
             <NegationPhrases>
                 <NegationPhrase></NegationPhrase>
@@ -59,7 +59,7 @@
            
         </TextCues>
         <VoiceActivation>
-            <VoiceCommandPhrase>LIRADS</VoiceCommandPhrase>  <!-- Perhaps we shouldn't reference "LI-RADS"? -->
+            <VoiceCommandPhrase>LIRADS</VoiceCommandPhrase>  
         </VoiceActivation>
     </Metadata>
 	
@@ -112,16 +112,16 @@
                 </Choice>
                 <Choice>
                     <Value>hypoEnhancing</Value>
-                    <Label>Hypo-enhancement</Label>  <!-- Took out "Arterial phase" to match "Iso-enhancement" convention -->
+                    <Label>Hypo-enhancement</Label>  
                 </Choice>
                 <Choice>
                     <Value>hyperEnhancing</Value>
-                    <Label>Hyper-enhancement</Label>  <!-- Took out "Arterial phase" to match "Iso-enhancement" convention -->
+                    <Label>Hyper-enhancement</Label>  
                 </Choice>
             </ChoiceInfo>
         </ChoiceDataElement>
         
-        <ChoiceDataElement Id="washout">
+        <ChoiceDataElement Id="washout" IsRequired="true">
             <Label>Washout</Label>
             <ChoiceInfo>
 			   <Choice>
@@ -142,7 +142,7 @@
             </ImageMap>
         </ChoiceDataElement>
 		       
-        <ChoiceDataElement Id="capsule">
+        <ChoiceDataElement Id="capsule" IsRequired="true">
             <Label>Capsule</Label>
             <ChoiceInfo>
 			   <Choice>
@@ -163,7 +163,7 @@
             </ImageMap>
         </ChoiceDataElement>
         
-        <ChoiceDataElement Id="thresholdgrowth">
+        <ChoiceDataElement Id="thresholdgrowth" IsRequired="true">
             <Label>Threshold Growth</Label>
             <ChoiceInfo>
 			   <Choice>
@@ -594,65 +594,66 @@
     </Rules>
     
     <EndPoints>
+		<EndPoint Id="definitelybenignEp">
+            <Label>HCC-1</Label>
+            <ReportTexts>
+                <ReportText SectionId="findings">[HCC-1] Imaging features diagnostic of a benign entity or definite spontaneous disappearance at follow up.</ReportText>
+            </ReportTexts>
+        </EndPoint>
+	
         <EndPoint Id="probablyBenignEp">
             <Label>HCC-2</Label>
            <ReportTexts>
-               <ReportText SectionId="findings">Observation with imaging features suggestive but not diagnostic of a benign entity.</ReportText>
+               <ReportText SectionId="findings">[HCC-2] Observation with imaging features suggestive but not diagnostic of a benign entity.</ReportText>
            </ReportTexts>
         </EndPoint>
-        
-        <EndPoint Id="definitelybenignEp">
-            <Label>HCC-1</Label>
+ 
+		<EndPoint Id="hcc3">
+            <Label>HCC-3</Label>
             <ReportTexts>
-                <ReportText SectionId="findings">Imaging features diagnostic of a benign entity or definite spontaneous disappearance at follow up.</ReportText>
+                <ReportText SectionId="findings">[HCC-3] Observation that does not meet unequivocal criteria for other LI-RADS categories.</ReportText>  
             </ReportTexts>
         </EndPoint>
-        
-        <EndPoint Id="treatedobservationEp">
-            <Label>HCC-Treated</Label>
+ 
+		<EndPoint Id="hcc4">
+            <Label>HCC-4</Label>
             <ReportTexts>
-                <ReportText SectionId="findings">An observation that has undergone loco-regional treatment.</ReportText>
-            </ReportTexts>
-        </EndPoint>
-        
-        <EndPoint Id="notspecificforhccEp">
-            <Label>HCC-M</Label>
-            <ReportTexts>
-                <ReportText SectionId="findings">Observation with one or more imaging features that favor non-HCC malignancy </ReportText>
-            </ReportTexts>
-        </EndPoint>
-        <EndPoint Id="tumorinveinEp">
-            <Label>HCC-5V</Label>
-            <ReportTexts>
-                <ReportText SectionId="findings">Presence of tumor in vein lumen.</ReportText>
-            </ReportTexts>
-        </EndPoint>
-        
-        <EndPoint Id="hcc3">
-            <Label>HCC-5V</Label>
-            <ReportTexts>
-                <ReportText SectionId="findings">Observation that does not meet unequivocal criteria for other LI-RADS categories.</ReportText>  <!-- Perhaps we shouldn't reference "LI-RADS"? -->
-            </ReportTexts>
-        </EndPoint>
-        
-        <EndPoint Id="hcc4">
-            <Label>HCC-5V</Label>
-            <ReportTexts>
-                <ReportText SectionId="findings">Observation with imaging features suggestive but not diagnostic of HCC. </ReportText>
+                <ReportText SectionId="findings">[HCC-4] Observation with imaging features suggestive but not diagnostic of HCC. </ReportText>
             </ReportTexts>
         </EndPoint>
         
         <EndPoint Id="hcc5">
+            <Label>HCC-5</Label>
+            <ReportTexts>
+                <ReportText SectionId="findings">[HCC-5] Observation with imaging features diagnostic of HCC.</ReportText>
+            </ReportTexts>
+        </EndPoint>        
+        
+		<EndPoint Id="tumorinveinEp">
             <Label>HCC-5V</Label>
             <ReportTexts>
-                <ReportText SectionId="findings">Observation with imaging features diagnostic of HCC.</ReportText>
+                <ReportText SectionId="findings">[HCC-5V] Presence of tumor in vein lumen.</ReportText>
             </ReportTexts>
         </EndPoint>
-        
-        <EndPoint Id="hcc4_5">
-            <Label>HCC-5V</Label>
+		
+		<EndPoint Id="notspecificforhccEp">
+            <Label>HCC-M</Label>
             <ReportTexts>
-                <ReportText SectionId="findings">Refers to a cell in the LI-RADS table where observations may be considered LR-4, LR-5us, or LR-5g</ReportText>  <!-- Perhaps we shouldn't reference "LI-RADS"? -->
+                <ReportText SectionId="findings">[HCC-M] Observation with one or more imaging features that favor non-HCC malignancy </ReportText>
+            </ReportTexts>
+        </EndPoint>
+		
+        <EndPoint Id="treatedobservationEp">
+            <Label>HCC-Treated</Label>
+            <ReportTexts>
+                <ReportText SectionId="findings">[HCC-Treated] An observation that has undergone loco-regional treatment.</ReportText>
+            </ReportTexts>
+        </EndPoint>
+       
+        <EndPoint Id="hcc4_5">
+            <Label>HCC-4/HCC-5</Label>
+            <ReportTexts>
+                <ReportText SectionId="findings">[HCC-4/HCC-5] Refers to a cell in the LI-RADS table where observations may be considered LR-4, LR-5us, or LR-5g</ReportText>  
             </ReportTexts>
         </EndPoint>           
     </EndPoints>
