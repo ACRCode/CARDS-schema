@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="ACRAssistXMLSchemav1_0.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ACRAssist_xml_schema_v1_0.rnc" type="application/relax-ng-compact-syntax"?>
 <ReportingModule>
     <Metadata>   
         <Label>Hello RADS</Label>
         <ID>Hello_Rads_1_0</ID>
         <SchemaVersion>1.0</SchemaVersion>
-        <RuleVersion>1.0</RuleVersion>
+        <RuleVersion>1.5</RuleVersion>
         <Info>
             <Description>This is a sample xml for characterizing liver lession for MRI</Description>
             <References>          
@@ -21,8 +21,8 @@
                 </Diagram>
             </Diagrams>
             <Contact>
-                <Name></Name>
-                <Email></Email>
+                <Name>ACR Assist</Name>
+            	<Email>acr-assist@acr.org</Email>
                 <Institution>American College of Radiology</Institution>
             </Contact>
         </Info>
@@ -67,37 +67,37 @@
 		<GlobalValue Id="diameterSmall">10</GlobalValue>
         <GlobalValue Id="diameterLarge">20</GlobalValue>
 		       
-        <ChoiceDataElement Id="observationCharacter" IsRequired="true">
+    	<ChoiceDataElement Id="observationCharacter" IsRequired="true" CdeId="RDE65" >        	
             <Label>Observation in high risk patient</Label>
             <ChoiceInfo>
                 <Choice>
                     <Value>notDefProbBenign</Value>
                     <Label>Neither definite nor probable benign</Label>
                 </Choice>
+            	<Choice>
+            		<Value>definitelyBenign</Value>
+            		<Label>Definitely benign</Label>
+            	</Choice>
                 <Choice>
                     <Value>probablyBenign</Value>
                     <Label>Probably benign</Label>
                 </Choice>
-                <Choice>
-                    <Value>definitelyBenign</Value>
-                    <Label>Definitely benign</Label>
-                </Choice>
+            	<Choice>
+            		<Value>notspecificforhcc</Value>
+            		<Label>Probable malignancy, not specific for HCC</Label>
+            	</Choice>
+            	<Choice>
+            		<Value>tumorInVein</Value>
+            		<Label>Tumor in vein</Label>
+            	</Choice>
                 <Choice>
                     <Value>treatedObservation</Value>
                     <Label>Treated observation</Label>
                 </Choice>
-                <Choice>
-                    <Value>notspecificforhcc</Value>
-                    <Label>Probable malignancy, not specific for HCC</Label>
-                </Choice>
-                <Choice>
-                    <Value>tumorInVein</Value>
-                    <Label>Tumor in vein</Label>
-                </Choice>
             </ChoiceInfo>
         </ChoiceDataElement>
 
-        <NumericDataElement Id="diameter" IsRequired="true">
+    	<NumericDataElement Id="diameter" IsRequired="true" CdeId="RDE81">
             <Label>Diameter (mm)</Label>
             <Hint>Size of the lesion in mm</Hint>
             <Minimum>1</Minimum>
@@ -121,7 +121,7 @@
             </ChoiceInfo>
         </ChoiceDataElement>
         
-        <ChoiceDataElement Id="washout" IsRequired="true">
+    	<ChoiceDataElement Id="washout" IsRequired="true" CdeId="RDE85">
             <Label>Washout</Label>
             <ChoiceInfo>
 			   <Choice>
@@ -142,7 +142,7 @@
             </ImageMap>
         </ChoiceDataElement>
 		       
-        <ChoiceDataElement Id="capsule" IsRequired="true">
+    	<ChoiceDataElement Id="capsule" IsRequired="true" CdeId="RDE83">
             <Label>Capsule</Label>
             <ChoiceInfo>
 			   <Choice>
@@ -163,7 +163,7 @@
             </ImageMap>
         </ChoiceDataElement>
         
-        <ChoiceDataElement Id="thresholdgrowth" IsRequired="true">
+    	<ChoiceDataElement Id="thresholdgrowth" IsRequired="true" CdeId="RDE84">
             <Label>Threshold Growth</Label>
             <ChoiceInfo>
 			   <Choice>
