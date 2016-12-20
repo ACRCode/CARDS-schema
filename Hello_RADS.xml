@@ -103,7 +103,7 @@
             <Minimum>1</Minimum>
         </NumericDataElement>
         
-        <ChoiceDataElement Id="arterialEnhancement" IsRequired="true">
+    	<ChoiceDataElement Id="arterialEnhancement" IsRequired="true" CdeId="RDE86">
             <Label>Arterial phase enhancement</Label>
             <ChoiceInfo>
                 <Choice>
