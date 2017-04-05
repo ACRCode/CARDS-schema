@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="../ACRAssist_xml_schema_v1_0.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="ACRAssist_xml_schema_v1_0.rnc" type="application/relax-ng-compact-syntax"?>
 <ReportingModule>
 	
     <Metadata>   
@@ -8,7 +8,7 @@
         <SchemaVersion>1.0</SchemaVersion>
         <RuleVersion>1.6</RuleVersion>
         <Info>
-            <Description>This is a sample xml for characterizing liver lession for MRI</Description>
+            <Description>This is a sample xml for characterizing liver lesion for MRI</Description>
             <References>          
                 <Citation Url="https://nrdr.acr.org/lirads/">
                 </Citation>
