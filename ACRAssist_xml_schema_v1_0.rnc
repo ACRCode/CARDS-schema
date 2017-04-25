@@ -279,7 +279,7 @@ EndPoints =
             Diagnosis?,
             ReportTexts,
             ActionableFinding?,
-            element ImagingFollowup { Exam+ }?
+            ImagingFollowup?
         }+
     }
 ReportTexts = element ReportTexts { ReportText+ }
@@ -298,25 +298,12 @@ timeFrame =
         attribute Latest { xsd:duration }?,
         empty
     }
-ExternalAction =
-    element ExternalRecommendation {
-        recommendationBase,
-        element Action { text },
-        timeFrame
-    }
 ImagingFollowup =
     element ImagingFollowup {
         recommendationBase,
         element PreferredImagingExam { codeAttrs, text },
         element AcceptableImagingExams { Exam+ },
         element IndicationForFollowup { codeAttrs, text },
-        timeFrame
-    }
-LaboratoryFollowup =
-    element Recommendation {
-        recommendationBase,
-        element LaboratoryTest { codeAttrs, text }+,
-        element IndicationForFollowup { codeAttrs, text }?,
         timeFrame
     }
 ActionableFinding =
