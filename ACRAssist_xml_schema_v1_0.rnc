@@ -1,4 +1,3 @@
-
 start = ReportingModule
 ReportingModule = element ReportingModule { Metadata, DataElements, Rules, EndPoints }
 # ? - needs revisit
@@ -81,7 +80,7 @@ Diagnosis = element Diagnosis { codeAttrs, text }
 Modality = element Modality { codeAttrs }
 BodyRegion = element BodyRegion { codeAttrs }
 imageElements =
-    element imageElements { xsd:anyURI },
+    element Location { xsd:anyURI },
     element Label { text }?
 # start of the next Section Data Elements
 
