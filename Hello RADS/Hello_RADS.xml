@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-model href="ACRAssist_xml_schema_v1_0.rnc" type="application/relax-ng-compact-syntax"?>
+<?xml-model href="../ACRAssist_xml_schema.rnc" type="application/relax-ng-compact-syntax"?>
 <ReportingModule>
 	
     <Metadata>   
@@ -17,7 +17,7 @@
             </References>
             <Diagrams>  
                 <Diagram DisplaySequence="1" KeyDiagram="true">
-                	<imageElements>https://nrdr.acr.org/lirads/ </imageElements>
+                	<imageElements>LIRADS.png</imageElements>
                     <Label>ACR LI-RADS</Label>  
                 </Diagram>
             </Diagrams>
@@ -224,10 +224,10 @@
 			   </Choice>
 			</ChoiceInfo>
             <ImageMap>
-            	<imageElements>washoutImages.jpg</imageElements>
+            	<imageElements>washoutImages.png</imageElements>
                 <Map>
-                    <Area Shape="rect" Coords="0,448,622,580" ChoiceValue="no"/>
-                    <Area Shape="rect" Coords="0,0,622,447" ChoiceValue="yes"/>
+                     <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
+                    <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
                 </Map>
             </ImageMap>
         </ChoiceDataElement>
@@ -246,10 +246,10 @@
 			   </Choice>
 			</ChoiceInfo>
             <ImageMap>
-            	<imageElements>capsuleImages.jpg</imageElements>
+            	<imageElements>capsuleImages.png</imageElements>
                 <Map>
-                    <Area Shape="rect" Coords="0,0,887,227" ChoiceValue="no"/>
-                    <Area Shape="rect" Coords="0,228,887,805" ChoiceValue="yes"/>
+                     <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
+                    <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
                 </Map>
             </ImageMap>
         </ChoiceDataElement>
@@ -270,11 +270,11 @@
 				  <Label>No</Label>
 			   </Choice>
 			</ChoiceInfo>
-            <ImageMap>
-            	<imageElements>thresholdImages.jpg</imageElements>
+             <ImageMap>
+            	<imageElements>thresholdImages.png</imageElements>
                 <Map>
-                    <Area Shape="rect" Coords="0,682,905,912" ChoiceValue="no"/>  
-                    <Area Shape="rect" Coords="0,0,905,681" ChoiceValue="yes"/>
+                     <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
+                    <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
                 </Map>
             </ImageMap>
         </ChoiceDataElement>
