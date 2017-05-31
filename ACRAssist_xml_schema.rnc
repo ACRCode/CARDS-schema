@@ -1,6 +1,6 @@
+#Version 1.0
 start = ReportingModule
 ReportingModule = element ReportingModule { Metadata, DataElements, Rules, EndPoints }
-# ? - needs revisit
 Metadata =
     element Metadata {
         element Label { text },
@@ -235,6 +235,7 @@ branchModifiers =
 # element NotValidChoices { ChoiceRef+ }?
 DecisionPoint =
     element DecisionPoint {
+        attribute Id { xsd:ID },
         element Label { text },
         element Description { text }?,
         # HtmlContent -> text

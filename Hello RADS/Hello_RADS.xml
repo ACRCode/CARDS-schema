@@ -17,7 +17,7 @@
             </References>
             <Diagrams>  
                 <Diagram DisplaySequence="1" KeyDiagram="true">
-                	<imageElements>LIRADS.png</imageElements>
+                	<Location>LIRADS.png</Location>
                     <Label>ACR LI-RADS</Label>  
                 </Diagram>
             </Diagrams>
@@ -224,7 +224,7 @@
 			   </Choice>
 			</ChoiceInfo>
             <ImageMap>
-            	<imageElements>washoutImages.png</imageElements>
+            	<Location>washoutImages.png</Location>
                 <Map>
                      <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
                     <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
@@ -246,7 +246,7 @@
 			   </Choice>
 			</ChoiceInfo>
             <ImageMap>
-            	<imageElements>capsuleImages.png</imageElements>
+            	<Location>capsuleImages.png</Location>
                 <Map>
                      <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
                     <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
@@ -271,7 +271,7 @@
 			   </Choice>
 			</ChoiceInfo>
              <ImageMap>
-            	<imageElements>thresholdImages.png</imageElements>
+             	<Location>thresholdImages.png</Location>
                 <Map>
                      <Area Shape="rect" Coords="0,462,800,623" ChoiceValue="no"/>
                     <Area Shape="rect" Coords="0,0,799,463" ChoiceValue="yes"/>
@@ -547,8 +547,8 @@
     </DataElements> 
 	
     <Rules>
-        <DecisionPoint>
-            <Label>Observation character</Label>
+        <DecisionPoint Id="ObservationDp">
+        	<Label> Observation in high-risk patient </Label>
             <Branch>
             	<Label>Treated Observation</Label>
 				<NotRelevantDataElements>
@@ -630,17 +630,17 @@
             		<EqualCondition DataElementId="observationCharacter" ComparisonValue="notDefProbBenign"/>
                 	<EqualCondition DataElementId="adjustcategorybasedonAncillary" ComparisonValue="No"/>
                 </AndCondition>
-            	<DecisionPoint>
+            	<DecisionPoint Id="ArterialphaseDp ">
                     <Label>Arterial phase enhancement</Label>
                     <Branch>
                         <Label>Hyper-enhancement</Label>  <!-- Hyper-enhancement -->
                         <EqualCondition DataElementId="arterialEnhancement" ComparisonValue="hyperEnhancing"/>
-                        <DecisionPoint>
+                    	<DecisionPoint Id="diameterDp">
                             <Label>Diameter</Label>
                             <Branch>
                                 <Label>&lt; 10</Label>   <!-- Diameter < 10 -->
                                 <LessThanCondition DataElementId="diameter" ComparisonValue="diameterSmall"/>
-								<DecisionPoint>
+                            	<DecisionPoint Id="wasoutCapsultThreDp1">
                                     <Label>Washout/Capsule/Thresholdgrowth</Label>  
                                     <Branch>
                                         <Label>None</Label>  <!-- None / Zero Y's -->
@@ -706,7 +706,7 @@
 									<GreaterThanOrEqualsCondition DataElementId="diameter" ComparisonValue="diameterSmall"/>
 									<LessThanOrEqualsCondition DataElementId="diameter" ComparisonValue="19"/>
 								</AndCondition>
-                                <DecisionPoint>
+								<DecisionPoint Id="wasoutCapsultThreDp2">
                                     <Label>Washout/Capsule/Thresholdgrowth</Label>  
                                     <Branch>
                                         <Label>None</Label>  <!-- None / Zero Y's -->
@@ -769,7 +769,7 @@
                             <Branch>
                                 <Label>&gt;= 20</Label>  <!-- Diameter >= 20 -->
                                 <GreaterThanOrEqualsCondition DataElementId="diameter" ComparisonValue="diameterLarge"/>
-                                <DecisionPoint>
+                            	<DecisionPoint Id="wasoutCapsultThreDp3">
                                     <Label>Washout/Capsule/Thresholdgrowth</Label>  
                                     <Branch>
                                         <Label>None</Label>  <!-- None / Zero Y's -->
@@ -837,12 +837,12 @@
 							<EqualCondition DataElementId="arterialEnhancement" ComparisonValue="hypoEnhancing"/>
 							<EqualCondition DataElementId="arterialEnhancement" ComparisonValue="isoEnhancing"/>
 						</OrCondition>
-						<DecisionPoint>
+						<DecisionPoint Id="DiameterDp2">
 							<Label>Diameter</Label>
 							<Branch>
 								<Label>&lt; 20</Label>   <!-- Diameter < 20 -->
 								<LessThanCondition DataElementId="diameter" ComparisonValue="diameterLarge"/>
-								<DecisionPoint>
+								<DecisionPoint Id="wasoutCapsultThreDp4">
 									<Label>Washout/Capsule/Thresholdgrowth</Label>  
 									<Branch>
 										<Label>None</Label>  <!-- None / Zero Y's -->
@@ -905,7 +905,7 @@
 							<Branch>
 								<Label>&gt;= 20</Label>  <!-- Diameter >= 20 -->
 								<GreaterThanOrEqualsCondition DataElementId="diameter" ComparisonValue="diameterLarge"/>
-								<DecisionPoint>
+								<DecisionPoint Id="wasoutCapsultThreDp5">
 									<Label>Washout/Capsule/Thresholdgrowth</Label>  
 									<Branch>
 										<Label>None</Label>  <!-- None / Zero Y's -->
@@ -977,7 +977,7 @@
        				</NotCondition>
        				<EqualCondition DataElementId="observationCharacter" ComparisonValue="notDefProbBenign"/>
        			</AndCondition>
-       			<DecisionPoint>
+       			<DecisionPoint Id="AdjustcategoryDp">
        				<Label>Adjust category</Label>
        				<Branch>
        					<EqualCondition DataElementId="adjustcategorybasedonAncillary" ComparisonValue="Upgradetohcc2"/>
