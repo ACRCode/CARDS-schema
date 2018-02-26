@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <?xml-model href="../ACRAssist_xml_schema.rnc" type="application/relax-ng-compact-syntax"?>
 <ReportingModule>
 	
@@ -6,7 +6,7 @@
         <Label>Hello RADS</Label>
         <ID>Hello_Rads_1_0</ID>
         <SchemaVersion>1.0</SchemaVersion>
-        <RuleVersion>1.6</RuleVersion>
+        <ModuleVersion>1.6</ModuleVersion>
         <Info>
             <Description>This is a sample xml for characterizing liver lesion for MRI</Description>
             <References>          
@@ -16,7 +16,7 @@
                 </Citation>
             </References>
             <Diagrams>  
-                <Diagram DisplaySequence="1" KeyDiagram="true">
+                <Diagram DisplaySequence="1" IsKeyDiagram="true">
                 	<Location>LIRADS.png</Location>
                     <Label>ACR LI-RADS</Label>  
                 </Diagram>
@@ -509,7 +509,7 @@
     			</Diagram>
     		</Diagrams>
     		<ChoiceInfo>
-    			<Choice Default="true">
+    			<Choice IsDefault="true">
     				<Value>No</Value>
     				<Label>No</Label>
     			</Choice>

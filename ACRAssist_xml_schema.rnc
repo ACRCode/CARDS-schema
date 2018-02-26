@@ -6,17 +6,11 @@ Metadata =
         element Label { text },
         element ID { text },
         element SchemaVersion { text },
-        element RuleVersion { text },
+        element ModuleVersion { text },
         element Info {
             element Description { text }?,
             element References { Citation+ }?,
-            element Diagrams {
-                element Diagram {
-                    attribute KeyDiagram { "true" | "false" }?,
-                    attribute DisplaySequence { xsd:integer }?,
-                    imageElements
-                }+
-            }?,
+            Diagrams?,
             element HelpText { text }?,
             element Contact {
                 element Name { text },
@@ -27,7 +21,7 @@ Metadata =
         element ReportCitationText { text },
         element Ontology {
             element AnatomicRegions {
-                attribute codingSystemAttr { text }?,
+                attribute CodingSystem { text }?,
                 element Region {
                     attribute Code { token },
                     text
@@ -80,7 +74,7 @@ Diagnosis = element Diagnosis { codeAttrs, text }
 Modality = element Modality { codeAttrs }
 BodyRegion = element BodyRegion { codeAttrs }
 imageElements =
-    element Location { xsd:anyURI },
+    element Location { text },
     element Label { text }?
 # start of the next Section Data Elements
 
@@ -91,19 +85,20 @@ DataElementTypes =
     | IntegerDataElement
     | MultiChoiceDataElement
     | GlobalValue
-    | ComputedElement
+    | ComputedDataElement
+    
 GlobalValue =
     element GlobalValue {
         attribute Id { xsd:ID },
         text
     }
-diagrams =
+Diagrams =
     element Diagrams {
         element Diagram {
             element Location { text },
             element Label { text },
             attribute DisplaySequence { xsd:integer }?,
-            attribute KeyDiagram { "true" | "false" }?
+            attribute IsKeyDiagram { "true" | "false" }?
         }+
     }
 DisplaySequence = attribute DisplaySequence {
@@ -116,9 +111,9 @@ baseElementContents =
     DisplaySequence?,
     element Label { text },
     element Hint { text }?,
-    diagrams?,
+    Diagrams?,
     element VoiceCommand { text }?
-    
+
 computedValue =
     element ArithmeticExpression { text }
     | element TextExpression { (text | InsertValue)* }
@@ -128,14 +123,14 @@ valueBranches =
     element DefaultBranch { computedValue | valueDecisionPoint }?
 valueDecisionPoint = element DecisionPoint { valueBranches }
 
-ComputedElement =
-    element ComputedElement {
+ComputedDataElement =
+    element ComputedDataElement {
         attribute Id { xsd:ID },
         DisplaySequence?,
-        attribute ShowValue { xsd:boolean }?,
+        attribute ShowValue { "true" | "false" }?,
         element Label { text }?,
         element Hint { text }?,
-        diagrams?,
+        Diagrams?,
         (computedValue | valueDecisionPoint)
     }
     
@@ -149,24 +144,27 @@ NumericDataElement =
 IntegerDataElement =
     element IntegerDataElement {
         (baseElementContents,
-         element Minimum { xsd:decimal }?,
-         element Maximum { xsd:decimal }?)
+         element Minimum { xsd:integer }?,
+         element Maximum { xsd:integer }?)
         
     }
+
 Choice =
     element Choice {
         element Value { xsd:token },
         element Label { text },
         element Hint { text }?,
         element VoiceCommand { text }?,
-        attribute Default { "true" | "false" }?,
+        attribute IsDefault { "true" | "false" }?,
         element ReportText { text }?
     }
+
 ChoiceInfo =
     element ChoiceInfo {
         Choice,
         Choice+
     }
+    
 imageMapStyleAttributes =
     attribute Outline { text }?,
     attribute HoverFill { text }?,
@@ -185,7 +183,7 @@ ImageMap =
             }+
         }
     }
-ChoiceDataElement = element ChoiceDataElement { baseElementContents, ChoiceInfo, ImageMap? }
+ChoiceDataElement = element ChoiceDataElement { attribute AllowFreetext {"true" | "false"}?,  baseElementContents, ChoiceInfo, ImageMap? }
 MultiChoiceDataElement = element MultiChoiceDataElement { baseElementContents, ChoiceInfo, ImageMap? }
 
 # Start of next section (RULES)
