@@ -1,6 +1,6 @@
 # Version 1.0
 start = ReportingModule
-ReportingModule = element ReportingModule {external "Metadata_Schema_2.0.rnc", DataElements, Rules, EndPoints }
+ReportingModule = element ReportingModule {external "Metadata.rnc", DataElements, Rules, EndPoints }
 Citation =
     element Citation {
         attribute PubmedId { xsd:token }?,
@@ -92,7 +92,7 @@ ChoiceNotRelevant =  element ChoiceNotRelevant
 {
   attribute ChoiceValue {text}, 
   empty
-}
+}+
 
 baseConditionalPropertyContents =
       ConditionType,
