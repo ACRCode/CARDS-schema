@@ -1,0 +1,58 @@
+{
+  "id": "Unique Id of Test case document",
+  "description": "Unique Id of Test case document",
+  "moduleId": "ACR PI-RADS",
+  "moduleName": "ACR HELLO-ASSIST",
+  "schemaVersion": "2.0",
+  "moduleVersion": "1.0",
+  "excludeForFiltering" :["observationnumber","Location"],
+  "testCases": [
+    {
+      "testCaseId": "HELLO-ASSIST_1",
+      "endpointId": "NoF/U",
+      "endpointlabel": "No F/U",
+      "inputs": [
+	  {
+          "dataElementId": "Size",
+          "dataElementValue": "1"
+        }
+      ]
+    },
+	
+	{
+      "testCaseId": "HELLO-ASSIST_2",
+      "endpointId": "6moF/U",
+      "endpointlabel": "F/U in 6mo",
+      "inputs": [
+	  {
+          "dataElementId": "Size",
+          "dataElementValue": "2"
+        }, 
+       {
+          "dataElementId": "Enhancement",
+          "dataElementValue": "N",
+		  "dataElementDisplayValue":"No"
+		  
+        }    		
+      ]
+    },
+	
+	{
+      "testCaseId": "HELLO-ASSIST_3",
+      "endpointId": "mustF/U",
+      "endpointlabel": "Immediate f/u",
+      "inputs": [
+	  {
+          "dataElementId": "Size",
+          "dataElementValue": "2"
+        },
+        {
+          "dataElementId": "Enhancement",
+          "dataElementValue": "Y",
+		  "dataElementDisplayValue":"Yes"
+        } 		
+      ]
+    },
+	
+	 ]
+}
