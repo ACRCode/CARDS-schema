@@ -52,10 +52,6 @@ DisplaySequence =
     
 baseElementContents =
     attribute Id { xsd:ID },
-    attribute IsRepeatable { "true" | "false" }?,
-    attribute RepeatGroup { text }?,
-    attribute RepeatCount { text }?,
-   # attribute CdeId { xsd:token }?,
     attribute IsRequired { "true" | "false" }?,
     DisplaySequence?,
     CodableConcept?,
@@ -332,9 +328,6 @@ EndPointRef =
     element EndPointRef {
         attribute EndPointId { xsd:IDREF },
         attribute DiagramId { xsd:IDREF }?,
-        attribute IsRepeatable { "true" | "false" }?,
-        attribute RepeatGroup { text }?,
-        attribute RepeatCount { text }?,
         element Label { text }?,
         element Description { text }?       
         }
