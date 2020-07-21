@@ -343,6 +343,7 @@ EndPoints =
             element Label { text }?,              
             Diagnosis?,
             #ReportTexts,
+	    SetValues?,
             ReportSections,
             ActionableFinding?,
             ImagingFollowup?
@@ -388,6 +389,14 @@ ActionableFinding =
         attribute Category { text },
         empty
     }
+    
+SetValues = element SetValues { SetDataElementValue+ }
+SetDataElementValue =
+    element SetDataElementValue {
+        attribute DataElementId { xsd:IDREF },
+        attribute Value { text }
+    }   
+    
 Exam =
     element Exam {
         attribute Code { text },
