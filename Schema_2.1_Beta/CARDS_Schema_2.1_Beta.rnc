@@ -382,8 +382,7 @@ ReportText =
 sectionIdAttr =
     attribute SectionId {
         "findings" | "impression" | "recommendation" | "impressionRecommendation" | "citation"
-    },
-    attribute SubSectionName { text }?
+    }
 recommendationBase =
     element ClinicalCondition { text }?,
     element References { Citation+ }?,
