@@ -72,13 +72,7 @@ CodableConcept =
 Coding =
     element Coding {
         element System {
-            attribute Value {
-                "https://www.radelement.org/set"
-                | "https://www.radelement.org/element"
-                | "http://loinc.org"
-                | "http://snomed.info/sct"
-                | "http://www.ncbi.nlm.nih.gov/pubmed"
-            }
+            attribute Value { text }
         },
         element Version {
             attribute Value { text }
@@ -91,9 +85,6 @@ Coding =
         },
         element UserSelected {
             attribute Value { "true" | "false" }
-        }?,
-        element Url {
-            attribute Value { text }
         }?
     }+
 Source =
