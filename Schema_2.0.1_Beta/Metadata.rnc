@@ -62,7 +62,8 @@ Metadata =
         }?,
         element VoiceActivation {
             element VoiceCommandPhrase { text }+
-        }?
+        }?,
+		specialty+,
     }
 authors = element authors { person*, org* }
 person =
@@ -125,3 +126,9 @@ codingSystemAttr = attribute CodingSystem { text }
 codeAttrs =
     codingSystemAttr?,
     attribute Code { xsd:token }
+	
+Specialty =
+    element Specialty {
+        element Name { text },
+        element Abbreviation { text }
+    }

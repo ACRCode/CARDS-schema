@@ -63,7 +63,8 @@ baseElementContents =
     attribute IsOutput { "true" | "false" }?,
     attribute Unit { text }?,
     Source?,
-    element References { Citation+ }?
+    element References { Citation+ }?,
+	Specialty*
 CodableConcept =
     element CodableConcept {
         attribute Name { text },
