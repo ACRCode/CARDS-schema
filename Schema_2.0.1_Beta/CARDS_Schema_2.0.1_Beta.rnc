@@ -9,13 +9,9 @@ Citation =
         element Description { text }
     }+
 # definitions for other parts of the schema
-codingSystemAttr = attribute CodingSystem { text }
-codeAttrs =
-    codingSystemAttr?,
-    attribute Code { xsd:token }
-Diagnosis = element Diagnosis { codeAttrs, text }
-Modality = element Modality { codeAttrs }
-BodyRegion = element BodyRegion { codeAttrs }
+Diagnosis = element Diagnosis { Coding }
+Modality = element Modality { Coding }
+BodyRegion = element BodyRegion { Coding }
 imageElements =
     element Location { text },
     element Label { text }?
@@ -64,7 +60,14 @@ baseElementContents =
     attribute Unit { text }?,
     Source?,
     element References { Citation+ }?,
-	Specialty*
+	element Specialties { Specialty+ }?
+
+Specialty =
+    element Specialty {
+        element Name { text },
+        element Abbreviation { text }
+    }
+
 CodableConcept =
     element CodableConcept {
         attribute Name { text },
@@ -378,7 +381,7 @@ sectionIdAttr =
 recommendationBase =
     element ClinicalCondition { text }?,
     element References { Citation+ }?,
-    element EvidenceLevel { codingSystemAttr, xsd:token }?
+    element EvidenceLevel { Coding }?
 timeFrame =
     element RecommendedTimeFrame {
         attribute Earliest { xsd:duration },
@@ -388,9 +391,9 @@ timeFrame =
 ImagingFollowup =
     element ImagingFollowup {
         recommendationBase,
-        element PreferredImagingExam { codeAttrs, text },
+        element PreferredImagingExam { Coding },
         element AcceptableImagingExams { Exam+ },
-        element IndicationForFollowup { codeAttrs, text },
+        element IndicationForFollowup { Coding },
         timeFrame
     }
 ActionableFinding =

@@ -25,14 +25,8 @@ Metadata =
         }?,
         element ReportCitationText { text },
         element Ontology {
-            element AnatomicRegions {
-                attribute CodingSystem { text }?,
-                element Region {
-                    attribute Code { token },
-                    text
-                }+
-            }*,
-            element PossibleDiagnoses { codingSystemAttr?, Diagnosis+ }*
+            element AnatomicRegions { Coding }*,
+            element PossibleDiagnoses { Coding }*
         }?,
         element ApplicableExams {
             element ApplicableExamCategory {
@@ -63,7 +57,7 @@ Metadata =
         element VoiceActivation {
             element VoiceCommandPhrase { text }+
         }?,
-		specialty+,
+		element Specialties { Specialty+ }?
     }
 authors = element authors { person*, org* }
 person =
@@ -121,11 +115,6 @@ Citation =
         attribute Url { xsd:anyURI }?,
         element Description { text }
     }+
-Diagnosis = element Diagnosis { codeAttrs, text }
-codingSystemAttr = attribute CodingSystem { text }
-codeAttrs =
-    codingSystemAttr?,
-    attribute Code { xsd:token }
 	
 Specialty =
     element Specialty {
