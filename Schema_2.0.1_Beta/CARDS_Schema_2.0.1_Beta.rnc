@@ -215,6 +215,7 @@ Choice =
         element Hint { text }?,
         element VoiceCommand { text }?,
         attribute IsDefault { "true" | "false" }?,
+		element ReportText { text }?,
         Diagrams?,
         CodableConcept?,
         element References { Citation+ }?
