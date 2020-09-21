@@ -354,10 +354,17 @@ EndPoints =
             attribute Id { xsd:ID },
             element Label { text }?,
             Diagnosis?,
+			SetValues?,
             ReportSections,
             ActionableFinding?,
             ImagingFollowup?
         }+
+    }
+SetValues = element SetValues { SetDataElementValue+ }
+SetDataElementValue =
+    element SetDataElementValue {
+        attribute DataElementId { xsd:IDREF },
+        attribute Value { text }
     }
 ReportSections = element ReportSections { ReportSection+ }
 ReportSection = element ReportSection { sectionIdAttr, Branch }

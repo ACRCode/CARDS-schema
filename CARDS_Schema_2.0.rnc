@@ -343,7 +343,7 @@ EndPoints =
             element Label { text }?,              
             Diagnosis?,
             #ReportTexts,
-	    SetValues?,
+			SetValues?,
             ReportSections,
             ActionableFinding?,
             ImagingFollowup?
